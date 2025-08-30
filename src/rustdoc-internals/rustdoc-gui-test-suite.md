@@ -34,6 +34,8 @@ On macOS you may see small pixel/position diffs that fail some rustdoc-gui tests
 
 Running `npx tsc` directly depends on your local TypeScript environment (DOM vs Node types). Prefer the suites above when in doubt.
 
+In CI, these checks run inside the dedicated "tidy" job (see the "tidy" job in GitHub Actions). It installs tidy and runs `./x.py test tidy -vv`, which triggers the ESLint/TypeScript steps described above.
+
 [Rustdoc test suites]: ../tests/compiletest.md#rustdoc-test-suites
 [`browser-UI-test`]: https://github.com/GuillaumeGomez/browser-UI-test/
 [puppeteer]: https://pptr.dev/
