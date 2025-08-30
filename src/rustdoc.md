@@ -60,6 +60,17 @@ does is call the `main()` that's in this crate's `lib.rs`, though.)
 * Use `./x test tests/rustdoc*` to run the tests using a stage1
   rustdoc.
   * See [Rustdoc internals] for more information about tests.
+* Use `./x test tidy --extra-checks=js` to run ESLint/TSC checks on rustdoc's frontend code.
+
+### Frontend CI checks
+
+Rustdoc's JavaScript and TypeScript are checked by ESLint and `tsc` during CI, not by compiletest. These run as part of the tidy job:
+
+```bash
+./x.py test tidy --extra-checks=js
+```
+
+The `--extra-checks=js` flag enables the frontend linting that runs in CI.
 
 [`bootstrap.toml`]: ./building/how-to-build-and-run.md
 
